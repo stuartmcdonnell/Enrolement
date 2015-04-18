@@ -1,4 +1,4 @@
-//BRANCH - READ MODIFIED
+//BRANCH - WORKING READ
 
 package enrolement;
 
@@ -24,9 +24,18 @@ public class Enrolement {
 
        //createStudent();
        //createStudent();
-       //saveFile();
        readFile();
-
+       //saveFile();
+       
+       System.out.println(sarray.get(0).name);
+       System.out.println(sarray.get(1).name);
+       System.out.println(sarray.get(2).name);
+       System.out.println(sarray.get(3).name);
+       System.out.println(sarray.get(4).name);
+       System.out.println(sarray.get(5).name);
+       System.out.println(sarray.get(6).name);
+       System.out.println(sarray.get(7).name);
+       System.out.println(sarray.get(8).name);
     }
 
     public static void saveFile() {
@@ -39,7 +48,7 @@ public class Enrolement {
             
             for(int tempindex = 0; tempindex < 20; tempindex++){
                 
-                writeLine = (sarray.get(tempindex).name+","+sarray.get(tempindex).dob+","+sarray.get(tempindex).gender+","+sarray.get(tempindex).addr+","+sarray.get(tempindex).courseID+",");
+                writeLine = (sarray.get(tempindex).name+","+sarray.get(tempindex).dob+","+sarray.get(tempindex).gender+","+sarray.get(tempindex).addr+",");
                 //writeLine = (sarray[tempindex].name + "," + sarray[tempindex].dob + "," + sarray[tempindex].gender + "," + sarray[tempindex].addr + "," + sarray[tempindex].courseID);
                 //System.out.println("Writing: "+writeLine);
                 spr.println(writeLine);
@@ -71,7 +80,6 @@ public class Enrolement {
         sb.append(sarray.get(writeIndex).dob);
         sb.append(sarray.get(writeIndex).gender);
         sb.append(sarray.get(writeIndex).addr);
-        sb.append(sarray.get(writeIndex).courseID);
         
        // System.out.println("INPUT: "+sb.toString());
         storeIndex++;
@@ -83,33 +91,32 @@ public class Enrolement {
 
             BufferedReader fileReader = new BufferedReader(new FileReader("StudentDetails.txt"));
             StringBuilder sb = new StringBuilder();
-            String line = fileReader.readLine();
-            //for open
             
-            int sectionIndex = 0;
-            
-            int[] multipleArray = new int[20];
-            multipleArray[0] = 5;
-            multipleArray[1] = 10;
-            
-            for(int index = 0; index < 5; index++){
-                
-                sb.append(line);
-                
-                //Splits the String into compontents in the array section.
-                String section[] = sb.toString().split(",");
-                
-                arrayListRead.add(section[index]);
-                line = fileReader.readLine();
+            for(int mainCount=0;mainCount<=sarray.size();){
 
-            }//for close
+            //System.out.println(mainCount);
+            String line = fileReader.readLine();    
+            String section[] = line.split(",");
+            int inCount=0; 
             
-            String everything = arrayListRead.toString();
-            //String everything = sb.toString();
-            System.out.println(everything);
-           
-            fileReader.close();
+            while(inCount<1){
+                
+                Student s = new Student();
+                s.name = (section[0]);
+                s.dob = (section[1]);
+                s.gender = (section[2]);
+                s.addr = (section[3]);
             
+                sarray.add(mainCount, s);
+                //System.out.println(s.name+","+s.dob+","+s.gender+","+s.addr);
+                inCount++;
+                }
+            
+                //System.out.println(sarray.get(mainCount).name);
+                mainCount++;
+                 
+            }
+
         } 
         catch (Exception e) {
         } 

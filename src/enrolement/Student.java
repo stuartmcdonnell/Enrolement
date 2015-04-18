@@ -7,7 +7,7 @@ package enrolement;
 
 import java.util.Scanner;
 
-public class Student {String name; String dob; String gender; String addr;int courseID;
+public class Student {String name; String dob; String gender; String addr;
 
 
     public Student createStudent(){
@@ -26,8 +26,6 @@ public class Student {String name; String dob; String gender; String addr;int co
         System.out.println("Input Address: ");
         this.addr = scn.nextLine();
         
-        System.out.println("Input courseID: ");
-        this.courseID = scn.nextInt();
         
     return this;
     }
