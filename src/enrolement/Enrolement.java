@@ -21,25 +21,16 @@ public class Enrolement {
     
 
     public static void main(String[] args) {
-
-       //createStudent();
-       //createStudent();
-       readFile();
-       //saveFile();
-       
-       System.out.println(sarray.get(0).name);
-       System.out.println(sarray.get(1).name);
-       System.out.println(sarray.get(2).name);
-       System.out.println(sarray.get(3).name);
-       System.out.println(sarray.get(4).name);
-       System.out.println(sarray.get(5).name);
-       System.out.println(sarray.get(6).name);
-       System.out.println(sarray.get(7).name);
-       System.out.println(sarray.get(8).name);
+       readFile();   
+       System.out.println(searchStudent("Eoin"));
+       saveFile();
+    }
+    
+    public static void exit(){
+        saveFile();
     }
 
     public static void saveFile() {
-
         try {
           
             PrintWriter spr = new PrintWriter("StudentDetails.txt");
@@ -90,7 +81,6 @@ public class Enrolement {
         try {
 
             BufferedReader fileReader = new BufferedReader(new FileReader("StudentDetails.txt"));
-            StringBuilder sb = new StringBuilder();
             
             for(int mainCount=0;mainCount<=sarray.size();){
 
@@ -122,4 +112,33 @@ public class Enrolement {
         } 
     
         } 
+    
+    
+    public static String searchStudent(String name){
+       int foundIndex;
+       
+       String finalString=null;
+       
+      //System.out.println(sarray.size());
+      //System.out.println(name);
+        
+        for(int i=0;i<sarray.size();i++){
+        
+         String tempName=sarray.get(i).name;
+         if(tempName.equals(name)){
+             //System.out.println(tempName);
+             //System.out.println("MATCH FOUND");
+             foundIndex=i;
+             finalString=("Match Found At: "+i);
+             break;
+         }
+         else{
+             finalString = "No Match Found!";
+         }
+         
+        }
+        return finalString;
+    }
+    
+    
 }

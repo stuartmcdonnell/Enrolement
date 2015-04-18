@@ -21,6 +21,7 @@ public class Student {String name; String dob; String gender; String addr;
         this.dob = scn.nextLine();
         
         System.out.println("Input Gender: ");
+        
         this.gender = scn.nextLine();
         
         System.out.println("Input Address: ");
@@ -29,6 +30,7 @@ public class Student {String name; String dob; String gender; String addr;
         
     return this;
     }
+    
     
     
     
