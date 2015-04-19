@@ -8,6 +8,7 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Enrolement {
     
@@ -21,8 +22,10 @@ public class Enrolement {
     
 
     public static void main(String[] args) {
-       readFile();   
-       System.out.println(searchStudent("Eoin"));
+       readFile();
+       deleteStudent();
+       //createStudent();
+       //System.out.println(searchStudent("Eoin"));
        saveFile();
     }
     
@@ -44,12 +47,12 @@ public class Enrolement {
                 //System.out.println("Writing: "+writeLine);
                 spr.println(writeLine);
                 arrayIndex++;
-                System.out.println("Size: "+sarray.size());
-                System.out.println("Temp Index: "+sarray.size());
+               // System.out.println("Size: "+sarray.size());
+                //System.out.println("Temp Index: "+sarray.size());
                 
                 if(arrayIndex == sarray.size()){
                 spr.close();
-                System.out.println("Closed");
+                //System.out.println("Closed");
                 
                 }
                 
@@ -114,10 +117,9 @@ public class Enrolement {
         } 
     
     
-    public static String searchStudent(String name){
-       int foundIndex;
+    public static int searchStudent(String name){
+       int foundIndex=100;
        
-       String finalString=null;
        
       //System.out.println(sarray.size());
       //System.out.println(name);
@@ -129,16 +131,38 @@ public class Enrolement {
              //System.out.println(tempName);
              //System.out.println("MATCH FOUND");
              foundIndex=i;
-             finalString=("Match Found At: "+i);
              break;
          }
          else{
-             finalString = "No Match Found!";
+             //System.out.println("No Match Found!");
          }
          
         }
-        return finalString;
+        return foundIndex;
     }
     
+    public static int userSearch(){
+    Scanner scn = new Scanner(System.in);
+    System.out.println("Enter Student Name: ");
+    return searchStudent(scn.nextLine());
     
+    }
+    
+    public static void deleteStudent(){
+        Scanner scn = new Scanner(System.in);
+        int searchResult=100;
+        System.out.println("Enter Student ID to Delete or Press enter S to search!");
+        String input = scn.nextLine();
+        if(input.equals("S")){
+            searchResult=userSearch();
+            System.out.println("Search Result: "+searchResult);
+            sarray.remove(searchResult);
+            System.out.println("Search Result has Been Deleted!");
+        }
+        else if(!input.equals("S")){
+            int temp = Integer.parseInt(input);
+           sarray.remove(temp);
+            System.out.println("Student ID: "+input+" has Been Deleted!");
+        }
+    }
 }
