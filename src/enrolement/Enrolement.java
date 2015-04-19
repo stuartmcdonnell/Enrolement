@@ -23,9 +23,10 @@ public class Enrolement {
 
     public static void main(String[] args) {
        readFile();
-       deleteStudent();
-       //createStudent();
-       //System.out.println(searchStudent("Eoin"));
+       
+       //deleteStudent();
+       //feedbackSearch();
+       createStudent();
        saveFile();
     }
     
@@ -143,9 +144,16 @@ public class Enrolement {
     
     public static int userSearch(){
     Scanner scn = new Scanner(System.in);
-    System.out.println("Enter Student Name: ");
+    System.out.println("Enter Student Name To Search: ");
     return searchStudent(scn.nextLine());
+    }
     
+    public static void feedbackSearch(){
+        int inputIndex=userSearch();
+        System.out.println("Name: "+sarray.get(inputIndex).name);
+        System.out.println("Date of Birth:"+sarray.get(inputIndex).dob);
+        System.out.println("Gender: "+sarray.get(inputIndex).gender);
+        System.out.println("Address:"+sarray.get(inputIndex).addr);
     }
     
     public static void deleteStudent(){
