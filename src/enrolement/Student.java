@@ -34,17 +34,25 @@ public class Student {String name; String dob; String gender; String addr;
         System.out.println("Input Address: ");
         this.addr = scn.nextLine();
         
-        if(this.name.equals("")){
+        if(this.name.equals("") || this.name.length()<2 || this.name.startsWith(" ")){
+            System.out.println("------------------");
             System.out.println("Invalid Name!");
+            System.out.println("------------------");
         }
-        else if(this.dob.equals("")){
+        else if(this.dob.equals("")|| this.name.length()<2 || this.name.startsWith(" ")){
+            System.out.println("------------------");
             System.out.println("Invalid Date of Birth!");
+            System.out.println("------------------");
         }
         else if(!this.gender.equalsIgnoreCase("Male")&&!this.gender.equalsIgnoreCase("Female")){
+            System.out.println("------------------");
             System.out.println("Invalid Gender");
+            System.out.println("------------------");
         }
-        else if(this.addr.equals("")){
+        else if(this.addr.equals("")|| this.name.length()<2 || this.name.startsWith(" ")){
+            System.out.println("------------------");
             System.out.println("Invalid Address");
+            System.out.println("------------------");
         }
         else{
             break;
@@ -52,10 +60,6 @@ public class Student {String name; String dob; String gender; String addr;
     }
         return this;
     }
-    
-    
-    
-    
     
 }
 

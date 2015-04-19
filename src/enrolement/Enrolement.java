@@ -24,6 +24,7 @@ public class Enrolement
     System.out.println("------------------");
     System.out.println("Goodbye!");
     System.out.println("------------------");
+    System.exit(0);
   }
   
   public static void saveFile()

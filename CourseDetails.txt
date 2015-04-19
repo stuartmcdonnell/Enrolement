@@ -1,0 +1,5 @@
+Course Name: Software Engineering
+Course Lecturer: Dr George Wilkie
+Total Students: 6
+Male Percentage: 100%
+Female Percentage: 0%

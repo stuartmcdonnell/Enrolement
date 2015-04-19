@@ -7,6 +7,7 @@ public class Menu
 {
   Scanner scn = new Scanner(System.in);
   Enrolement e = new Enrolement();
+  Course c = new Course();
   public int startMenu()
   {
     Menu m = new Menu();  
@@ -29,11 +30,13 @@ public class Menu
     } else if (selection == 3) {
       Enrolement.feedbackSearch();
       m.startMenu();
-    } else if (selection != 4) {
-      if (selection == 5) {
-        Enrolement.exit();
-      }
+    } else if (selection == 4) {
+      c.courseReport();
+      m.startMenu();
+    }else if(selection ==5){
+      e.exit();
     }
+    
     return selection;
   }
 }
