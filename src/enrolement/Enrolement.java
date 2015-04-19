@@ -94,7 +94,7 @@ public class Enrolement
   
   public static int searchStudent(String name)
   {
-    int foundIndex = 100;
+    int foundIndex = 0;
     for (int i = 0; i < sarray.size(); i++)
     {
       String tempName = ((Student)sarray.get(i)).name;
@@ -109,6 +109,7 @@ public class Enrolement
   
   public static int userSearch()
   {
+    System.out.println("------------------");  
     Scanner scn = new Scanner(System.in);
     System.out.println("Enter Student Name To Search: ");
     return searchStudent(scn.nextLine());
@@ -117,6 +118,7 @@ public class Enrolement
   public static void feedbackSearch()
   {
     int inputIndex = userSearch();
+    System.out.println("------------------");
     System.out.println("Name: " + ((Student)sarray.get(inputIndex)).name);
     System.out.println("Date of Birth: " + ((Student)sarray.get(inputIndex)).dob);
     System.out.println("Gender: " + ((Student)sarray.get(inputIndex)).gender);
@@ -127,16 +129,16 @@ public class Enrolement
   {
     Scanner scn = new Scanner(System.in);
     
-    System.out.println("Enter Student ID to Delete or Press enter S to search!");
+    System.out.println("Enter Student ID to Delete or Enter S to search!");
     String input = scn.nextLine();
-    if (input.equals("S"))
+    if (input.equalsIgnoreCase("S"))
     {
       int searchResult = userSearch();
       System.out.println("Search Result: " + searchResult);
       sarray.remove(searchResult);
       System.out.println("Search Result has Been Deleted!");
     }
-    else if (!input.equals("S"))
+    else if (!input.equalsIgnoreCase("S"))
     {
       int temp = Integer.parseInt(input);
       sarray.remove(temp);
