@@ -1,19 +1,26 @@
 package enrolement;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.PrintWriter;
 
 public class Course {
     
 Enrolement e = new Enrolement();
     
-String name="Software Engineering";
-String lecturer="Dr George Wilkie";;
+static String name;
+static String lecturer;
 int totalStudents;
-int maleFemale;
-    
+int mpercentage=0;
+int fpercentage=0;
+String[] carray = new String[4];
 
 public String returnName(){
     return this.name;
+}
+
+public String returnLecturer(){
+    return this.lecturer;
 }
     
 public int countMale(){
@@ -28,7 +35,6 @@ public int countMale(){
     return male;
 }
 
-
 public int countFemale(){
     int female=0;
     for(int i=0;i<e.sarray.size();i++){
@@ -41,19 +47,13 @@ public int countFemale(){
 }
 
 public int malePercentage(){
-    int percentage=0;
-    percentage=(countMale()/e.sarray.size()*100);
-    return percentage;
+    mpercentage=(int)((countMale()*100)/totalStudents());
+    return mpercentage;
 }
 
 public int femalePercentage(){
-    int percentage=0;
-    percentage=(countFemale()/e.sarray.size()*100);
-    return percentage;
-}
-
-public String returnLecturer(){
-    return this.lecturer;
+    fpercentage=(int)((countFemale()*100)/totalStudents());
+    return fpercentage;
 }
 
 public int totalStudents(){
@@ -61,23 +61,32 @@ public int totalStudents(){
     return totalStudents;
 }
 
+public void readCourse(){
+    BufferedReader fileReader;
+    try
+    {
+        fileReader = new BufferedReader(new FileReader("CourseDetails.txt"));
+        this.name=fileReader.readLine();
+        this.lecturer=fileReader.readLine(); 
+    }
+    catch (Exception localException) {}
+}
+
 public void courseReport(){
     try{    
       PrintWriter spr = new PrintWriter("CourseDetails.txt");
-      spr.println("Course Name: "+this.name);
-      spr.println("Course Lecturer: "+this.lecturer);
-      spr.println("Total Students: "+totalStudents());
-      spr.println("Male Percentage: "+malePercentage()+"%");
-      spr.println("Female Percentage: "+femalePercentage()+"%");
+      spr.println(this.name);
+      spr.println(this.lecturer);
+      spr.println(totalStudents());
+      spr.println(malePercentage());
+      spr.println(femalePercentage());
       spr.close();
       System.out.println("------------------");
       System.out.println("Report Generated");
-      
     }
     catch (Exception localException){
     }
     
 }
-
 
 }

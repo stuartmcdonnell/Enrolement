@@ -6,7 +6,7 @@ public class main {
         Enrolement e = new Enrolement();
         Menu m = new Menu();
         Course c = new Course();
-        
+        c.readCourse();
         e.readFile();
         m.startMenu();
         e.saveFile();

@@ -13,8 +13,7 @@ public class Enrolement
   static String writeLine;
   static ArrayList arrayListRead = new ArrayList();
   static int writeIndex = 0;
-  static int storeIndex = 0;
-  
+  static ArrayList<Course> carray = new ArrayList(1);
   public static void exit()
   {
     System.out.println("------------------");
@@ -51,11 +50,7 @@ public class Enrolement
     if (sarray.size() < 20)
     {
       Student s = new Student();
-      
       sarray.add(s.createStudent());
-      StringBuilder sb = new StringBuilder();
-      
-      storeIndex += 1;
     }
     else
     {
@@ -113,7 +108,8 @@ public class Enrolement
     System.out.println("------------------");  
     Scanner scn = new Scanner(System.in);
     System.out.println("Enter Student Name To Search: ");
-    return searchStudent(scn.nextLine());
+    String name=scn.nextLine();
+    return searchStudent(name);
   }
   
   public static void feedbackSearch()
