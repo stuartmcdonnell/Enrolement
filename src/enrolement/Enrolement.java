@@ -99,6 +99,10 @@ public class Enrolement
         foundIndex = i;
         break;
       }
+      else if(name=="100"){
+          System.out.println("Search Canceled");
+          foundIndex=100;
+      }
     }
     return foundIndex;
   }
@@ -109,6 +113,9 @@ public class Enrolement
     Scanner scn = new Scanner(System.in);
     System.out.println("Enter Student Name To Search: ");
     String name=scn.nextLine();
+    if(name.equalsIgnoreCase("")||name.equalsIgnoreCase(" ")||name.startsWith(" ")){
+        System.out.println("Invalid Search Term!");
+    }
     return searchStudent(name);
   }
   
@@ -131,9 +138,10 @@ public class Enrolement
     if (input.equalsIgnoreCase("S"))
     {
       int searchResult = userSearch();
-      System.out.println("Search Result: " + searchResult);
-      sarray.remove(searchResult);
-      System.out.println("Search Result has Been Deleted!");
+        System.out.println("------------------"); 
+        System.out.println("Search Result: " + searchResult);
+        sarray.remove(searchResult);
+        System.out.println("Search Result has Been Deleted!");
     }
     else if (!input.equalsIgnoreCase("S"))
     {
