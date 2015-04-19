@@ -9,9 +9,10 @@ import java.util.Scanner;
 
 public class Student {String name; String dob; String gender; String addr;
 
+    Enrolement e = new Enrolement();
 
     public Student createStudent(){
-    
+   
     int running=1;    
         
     while(running ==1){
