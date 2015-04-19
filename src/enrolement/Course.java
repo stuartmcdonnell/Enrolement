@@ -83,6 +83,13 @@ public void courseReport(){
       spr.close();
       System.out.println("------------------");
       System.out.println("Report Generated");
+      System.out.println("------------------");
+      System.out.println("Course Name: "+this.returnName());
+      System.out.println("Lecturer Name: "+this.returnLecturer());
+      System.out.println("Total Students: "+totalStudents());
+      System.out.println("Male Percentage: "+malePercentage()+"%");
+      System.out.println("Female Percentage: "+femalePercentage()+"%");
+      System.out.println("------------------");
     }
     catch (Exception localException){
     }

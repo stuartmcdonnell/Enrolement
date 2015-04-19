@@ -9,6 +9,5 @@ public class main {
         c.readCourse();
         e.readFile();
         m.startMenu();
-        e.saveFile();
     }
 }

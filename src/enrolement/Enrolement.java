@@ -23,6 +23,7 @@ public class Enrolement
     System.out.println("------------------");
     System.out.println("Goodbye!");
     System.out.println("------------------");
+    saveFile();
     System.exit(0);
   }
   
@@ -51,6 +52,7 @@ public class Enrolement
     {
       Student s = new Student();
       sarray.add(s.createStudent());
+      saveFile();
     }
     else
     {
@@ -149,5 +151,6 @@ public class Enrolement
       sarray.remove(temp);
       System.out.println("Student ID: " + input + " has Been Deleted!");
     }
+    saveFile();
   }
 }
