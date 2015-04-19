@@ -20,13 +20,31 @@ public class Enrolement {
     static int writeIndex = 0;
     static int storeIndex = 0;
     
+ 
 
     public static void main(String[] args) {
        readFile();
+       Menu m = new Menu();
        
-       //deleteStudent();
-       //feedbackSearch();
-       createStudent();
+       int selection=m.startMenu();
+       
+       if(selection==1){
+           createStudent();
+       }
+       else if(selection==2){
+           deleteStudent();
+       }
+       else if(selection==3){
+           feedbackSearch();
+       }
+       else if(selection==4){
+           //courseReport();
+       }
+       else{
+           System.out.println("Invalid Selection!");
+       }
+       
+       
        saveFile();
     }
     
