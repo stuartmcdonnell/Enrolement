@@ -11,7 +11,7 @@ public class Menu
   public int startMenu()
   {
     Menu m = new Menu();  
-      
+    
     System.out.println("------------------");
     System.out.println("1. Add Student");
     System.out.println("2. Remove Student");
@@ -22,13 +22,13 @@ public class Menu
     System.out.println("Input Selection(Numbers Only): ");
     int selection = Integer.parseInt(this.scn.nextLine());
     if (selection == 1) {
-      Enrolement.createStudent();
+      e.createStudent();
       m.startMenu();
     } else if (selection == 2) {
-      Enrolement.deleteStudent();
+      e.deleteStudent();
       m.startMenu();
     } else if (selection == 3) {
-      Enrolement.feedbackSearch();
+      e.feedbackSearch();
       m.startMenu();
     } else if (selection == 4) {
       c.courseReport();

@@ -10,11 +10,9 @@ import java.util.Scanner;
 public class Enrolement
 {
   static ArrayList<Student> sarray = new ArrayList(20);
-  static String writeLine;
-  static ArrayList arrayListRead = new ArrayList();
-  static int writeIndex = 0;
-  static ArrayList<Course> carray = new ArrayList(1);
-  public static void exit()
+  String writeLine;
+  ArrayList<Course> carray = new ArrayList(1);
+  public void exit()
   {
     System.out.println("------------------");
     System.out.println("Saving...");
@@ -23,11 +21,10 @@ public class Enrolement
     System.out.println("------------------");
     System.out.println("Goodbye!");
     System.out.println("------------------");
-    saveFile();
     System.exit(0);
   }
   
-  public static void saveFile()
+  public void saveFile()
   {
     try
     {
@@ -46,7 +43,7 @@ public class Enrolement
     catch (Exception localException) {}
   }
   
-  public static void createStudent()
+  public void createStudent()
   {
     if (sarray.size() < 20)
     {
@@ -90,7 +87,7 @@ public class Enrolement
     catch (Exception localException) {}
   }
   
-  public static int searchStudent(String name)
+  public int searchStudent(String name)
   {
     int foundIndex = 0;
     for (int i = 0; i < sarray.size(); i++)
@@ -109,7 +106,7 @@ public class Enrolement
     return foundIndex;
   }
   
-  public static int userSearch()
+  public int userSearch()
   {
     System.out.println("------------------");  
     Scanner scn = new Scanner(System.in);
@@ -121,7 +118,7 @@ public class Enrolement
     return searchStudent(name);
   }
   
-  public static void feedbackSearch()
+  public void feedbackSearch()
   {
     int inputIndex = userSearch();
     System.out.println("------------------");
@@ -131,10 +128,9 @@ public class Enrolement
     System.out.println("Address: " + ((Student)sarray.get(inputIndex)).addr);
   }
   
-  public static void deleteStudent()
+  public void deleteStudent()
   {
     Scanner scn = new Scanner(System.in);
-    
     System.out.println("Enter Student ID to Delete or Enter S to search!");
     String input = scn.nextLine();
     if (input.equalsIgnoreCase("S"))
@@ -151,6 +147,5 @@ public class Enrolement
       sarray.remove(temp);
       System.out.println("Student ID: " + input + " has Been Deleted!");
     }
-    saveFile();
   }
 }
